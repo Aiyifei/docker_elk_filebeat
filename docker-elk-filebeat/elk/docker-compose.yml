@@ -15,21 +15,21 @@ services:
     networks:
       - elk
 
-  logstash:
-    build: logstash/
-    volumes:
-      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - ./logstash/pipeline:/usr/share/logstash/pipeline
-      - /home/laoyue/soft/tomcat/apache-tomcat-8.5.15/bin/logs:/logs
-    ports:
-      - "5000:5000"
-      - "5044:5044"
-    environment:
-      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-    networks:
-      - elk
-    depends_on:
-      - elasticsearch
+#  logstash:
+#    build: logstash/
+#    volumes:
+#      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+#      - ./logstash/pipeline:/usr/share/logstash/pipeline
+#      - /home/laoyue/soft/tomcat/apache-tomcat-8.5.15/bin/logs:/logs
+#    ports:
+#      - "5000:5000"
+#      - "5044:5044"
+#    environment:
+#      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#    networks:
+#      - elk
+#    depends_on:
+#      - elasticsearch
 
   kibana:
     build: kibana/
